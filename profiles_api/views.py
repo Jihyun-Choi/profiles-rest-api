@@ -7,7 +7,7 @@ from profiles_api import serializers
 
 class HelloApiView(APIView):
     """Test API View"""
-    serializers_class = serializers.HelloSerializer
+    serializer_class = serializers.HelloSerializer
 
     def get(self, request, format=None):
         """Returns a list of APIView features"""
@@ -34,3 +34,15 @@ class HelloApiView(APIView):
                 serializer.errors,
                 status=status.HTTP_400_BAD_REQUEST  #API에 의한 잘못된 request 오류
             )
+
+    def put(self, request, pk=None):
+        """Handle updating an object"""
+        return Response({'method': 'PUT'})
+
+    def patch(self, request, pk=None):
+        """Handle partial update of object"""
+        return Response({'method': 'PATCH'})
+
+    def delete(self, request, pk=None):
+        """Delete an object"""
+        return Response({'method': 'DELETE'})
